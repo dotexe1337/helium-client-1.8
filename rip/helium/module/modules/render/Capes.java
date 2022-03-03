@@ -31,7 +31,7 @@ public class Capes extends Module {
 		modes.add("Kansio");
 		modes.add("Jeffrey");
 		
-		this.mode = new Setting("Mode", this, "SilverPhoenix #1", modes);
+		this.mode = new Setting("Mode", this, "Silver Phoenix #1", modes);
 		
 		mc.hackedClient.getSettingManager().addSetting(this.mode);
 	}
