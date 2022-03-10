@@ -76,6 +76,7 @@ public class KillAura extends Module {
 	private Setting distance;
 	private Setting fakeab;
 	private Setting spinbot;
+	private Setting prioritisePlayers;
 	
 	private boolean isBlocking, apsDecrease, yawDecrease, pitchDecrease;
     private Timer apsStopwatch, botClearStopwatch;
@@ -591,7 +592,7 @@ public class KillAura extends Module {
                     //UPlayer.sendPackets(new C02PacketUseEntity(target, C02PacketUseEntity.Action.ATTACK));
                     attack(event);
                 } else {
-                    ClientUtils.addConsoleMessage("�cMissed a hit!");
+                    ClientUtils.addConsoleMessage("ï¿½cMissed a hit!");
                 }
             }
             targetList.get(targetIndex).attacks += 1;
@@ -708,7 +709,7 @@ public class KillAura extends Module {
                     //UPlayer.sendPackets(new C02PacketUseEntity(target, C02PacketUseEntity.Action.ATTACK));
                     attack((EntityLivingBase) target);
                 } else {
-                    ClientUtils.addConsoleMessage("�cMissed a hit!");
+                    ClientUtils.addConsoleMessage("ï¿½cMissed a hit!");
                 }
             }
             target.attacks += 1;
@@ -747,7 +748,7 @@ public class KillAura extends Module {
                 || (entity instanceof EntitySlime && ((Targeting)mc.hackedClient.getModuleManager().getModule("Targeting")).monsters.getValBoolean())
                 || (entity instanceof EntityAnimal && ((Targeting)mc.hackedClient.getModuleManager().getModule("Targeting")).animals.getValBoolean())
                 || (entity instanceof EntityPig && ((Targeting)mc.hackedClient.getModuleManager().getModule("Targeting")).animals.getValBoolean())
-                || (entity instanceof EntityVillager && v((Targeting)mc.hackedClient.getModuleManager().getModule("Targeting")).villagers.getValBoolean())
+                || (entity instanceof EntityVillager && ((Targeting)mc.hackedClient.getModuleManager().getModule("Targeting")).villagers.getValBoolean())
                 || (entity instanceof EntityGolem && ((Targeting)mc.hackedClient.getModuleManager().getModule("Targeting")).golems.getValBoolean())) {
             if (((mc.thePlayer.getDistanceToEntity(entity) <= (distance.getValDouble())))) {
             	return true;
